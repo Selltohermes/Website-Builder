@@ -8,9 +8,10 @@
   --ink:            #0A1A2F;
   --ink-700:        #12294a;
   --ink-500:        #1d3d68;
-  --gold:           #D4A537;
-  --gold-bright:    #F0BE4A;
-  --gold-deep:      #A87F1E;
+  --gold:           #C8A858;   /* the logo's dominant tone, sampled */
+  --gold-bright:    #DCC078;   /* logo highlight, used for hover */
+  --gold-ink:       #A88430;   /* large accent text, 3.4:1 on paper */
+  --gold-deep:      #8A6B24;   /* small text and links, 4.8:1 on paper */
   --green:          #12855F;
   --green-soft:     #E7F5F0;
   --red:            #C0392B;
@@ -35,7 +36,7 @@
   --shadow-sm:  0 1px 2px rgba(10, 26, 47, .06), 0 2px 6px rgba(10, 26, 47, .04);
   --shadow:     0 4px 12px rgba(10, 26, 47, .07), 0 12px 32px rgba(10, 26, 47, .07);
   --shadow-lg:  0 8px 24px rgba(10, 26, 47, .10), 0 28px 64px rgba(10, 26, 47, .13);
-  --shadow-gold: 0 6px 18px rgba(168, 127, 30, .30);
+  --shadow-gold: 0 6px 18px rgba(138, 107, 36, .26);
 
   --wrap: 1160px;
   --gut: clamp(20px, 5vw, 40px);
@@ -70,7 +71,7 @@ h1, h2, h3, h4 {
   margin: 0 0 .5em;
   font-weight: 800;
 }
-h1 { font-size: clamp(2.25rem, 5.4vw, 3.9rem); letter-spacing: -.032em; }
+h1 { font-size: clamp(2.4rem, 5.7vw, 4.15rem); letter-spacing: -.034em; }
 h2 { font-size: clamp(1.85rem, 3.9vw, 2.85rem); letter-spacing: -.028em; }
 h3 { font-size: clamp(1.15rem, 2vw, 1.4rem); }
 p  { margin: 0 0 1.1em; }
@@ -131,7 +132,7 @@ p:last-child { margin-bottom: 0; }
   transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
   text-align: center;
 }
-.btn:hover { background: var(--gold-bright); transform: translateY(-2px); box-shadow: 0 10px 26px rgba(168,127,30,.36); }
+.btn:hover { background: var(--gold-bright); transform: translateY(-2px); box-shadow: 0 10px 26px rgba(138,107,36,.32); }
 .btn:active { transform: translateY(0); }
 .btn--lg { padding: 20px 38px; font-size: 1.12rem; }
 .btn--block { width: 100%; }
@@ -236,7 +237,7 @@ p:last-child { margin-bottom: 0; }
 .hero {
   position: relative; overflow: hidden;
   background:
-    radial-gradient(ellipse 900px 520px at 82% -8%, rgba(212,165,55,.16), transparent 62%),
+    radial-gradient(ellipse 900px 520px at 82% -8%, rgba(200,168,88,.20), transparent 62%),
     radial-gradient(ellipse 720px 480px at 6% 4%, rgba(29,61,104,.09), transparent 60%),
     var(--paper);
   padding-block: clamp(44px, 6vw, 84px) clamp(56px, 7vw, 96px);
@@ -289,14 +290,22 @@ p:last-child { margin-bottom: 0; }
 .badge--stars { color: var(--gold-deep); }
 .badge--stars svg { color: var(--gold); }
 
-.hero h1 { margin-bottom: 20px; }
+.hero h1 { margin-bottom: 24px; line-height: 1.15; }
+/* The accent phrase carries the brand colour and a tapered brush underline,
+   which reads as deliberate typography rather than a marker smudge sitting
+   behind half the letters. */
 .hero h1 .accent {
-  position: relative; white-space: nowrap; color: var(--ink);
+  position: relative;
+  display: inline-block;
+  color: var(--gold-ink);
 }
-.hero h1 .accent::after {
-  content: ""; position: absolute; left: -2px; right: -2px; bottom: .06em; height: .34em;
-  background: linear-gradient(90deg, rgba(212,165,55,.55), rgba(240,190,74,.42));
-  border-radius: 4px; z-index: -1;
+.hero h1 .accent__stroke {
+  position: absolute;
+  left: 0; right: 0; bottom: -.15em;
+  width: 100%; height: .17em;
+  color: var(--gold);
+  overflow: visible;
+  pointer-events: none;
 }
 .hero__sub { font-size: clamp(1.06rem, 1.7vw, 1.24rem); color: var(--body); max-width: 54ch; }
 
@@ -352,7 +361,7 @@ p:last-child { margin-bottom: 0; }
 .field input::placeholder, .field textarea::placeholder { color: #9AA1B0; }
 .field input:focus, .field select:focus, .field textarea:focus {
   outline: none; background: #fff; border-color: var(--gold);
-  box-shadow: 0 0 0 4px rgba(212,165,55,.18);
+  box-shadow: 0 0 0 4px rgba(200,168,88,.22);
 }
 .field textarea { min-height: 96px; resize: vertical; }
 .field select { appearance: none; background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236B7385' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 44px; }
@@ -441,7 +450,7 @@ p:last-child { margin-bottom: 0; }
 @media (prefers-reduced-motion: reduce) { .tile:hover { transform: none; } }
 .tile__icon {
   width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center;
-  background: linear-gradient(140deg, rgba(212,165,55,.20), rgba(212,165,55,.07));
+  background: linear-gradient(140deg, rgba(200,168,88,.26), rgba(200,168,88,.09));
   color: var(--gold-deep); margin-bottom: 16px;
 }
 .tile h3 { font-size: 1.08rem; margin-bottom: 7px; }
@@ -487,8 +496,8 @@ p:last-child { margin-bottom: 0; }
 .compare tbody tr { border-top: 1px solid var(--line); }
 .compare tbody tr:nth-child(even) { background: var(--paper); }
 .compare td:first-child { font-weight: 700; color: var(--ink); }
-.compare td.is-featured { background: rgba(212,165,55,.09); font-weight: 700; color: var(--ink); }
-.compare tbody tr:nth-child(even) td.is-featured { background: rgba(212,165,55,.14); }
+.compare td.is-featured { background: rgba(200,168,88,.11); font-weight: 700; color: var(--ink); }
+.compare tbody tr:nth-child(even) td.is-featured { background: rgba(200,168,88,.17); }
 .cell { display: flex; align-items: center; gap: 9px; }
 .cell svg { flex: none; }
 .cell--yes svg { color: var(--green); }
@@ -501,6 +510,15 @@ p:last-child { margin-bottom: 0; }
   padding: 30px 28px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column;
 }
 .quote__stars { display: flex; gap: 3px; color: var(--gold); margin-bottom: 16px; }
+
+/* Commitment cards share the quote card chrome, with an icon in place of stars. */
+.promise__icon {
+  width: 48px; height: 48px; border-radius: 13px; display: grid; place-items: center;
+  background: linear-gradient(140deg, rgba(200,168,88,.26), rgba(200,168,88,.09));
+  color: var(--gold-deep); margin-bottom: 18px;
+}
+#promise .quote h3 { margin-bottom: 10px; }
+#promise .quote p { color: var(--muted); font-size: .97rem; margin: 0; }
 .quote blockquote { margin: 0 0 22px; font-size: 1.02rem; color: var(--ink); line-height: 1.62; flex: 1; }
 .quote__who { display: flex; align-items: center; gap: 13px; }
 .quote__avatar {
@@ -518,14 +536,16 @@ p:last-child { margin-bottom: 0; }
 }
 @media (max-width: 900px) { .about__grid { grid-template-columns: 1fr; } }
 .about__portrait {
-  border-radius: var(--radius-lg); overflow: hidden; background: var(--paper-2);
+  border-radius: var(--radius-lg); overflow: hidden; background: #fff;
   border: 1px solid var(--line); aspect-ratio: 4 / 5; position: relative;
   display: grid; place-items: center; box-shadow: var(--shadow);
 }
-.about__portrait img { width: 100%; height: 100%; object-fit: cover; }
-.about__placeholder { text-align: center; padding: 32px; color: var(--muted); }
-.about__placeholder svg { margin: 0 auto 14px; color: var(--line-strong); }
-.about__placeholder strong { display: block; color: var(--ink); font-family: var(--font-head); margin-bottom: 6px; }
+.about__portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 12%; }
+/* A gold hairline along the base ties the portrait to the brand. */
+.about__portrait::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 4px;
+  background: linear-gradient(90deg, var(--gold-deep), var(--gold-bright), var(--gold-deep));
+}
 .about__sig {
   font-family: var(--font-head); font-weight: 800; color: var(--ink);
   font-size: 1.1rem; margin-top: 6px;
@@ -562,8 +582,8 @@ p:last-child { margin-bottom: 0; }
 .cta-band::before {
   content: ""; position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse 700px 400px at 15% 0%, rgba(212,165,55,.20), transparent 60%),
-    radial-gradient(ellipse 600px 400px at 90% 100%, rgba(212,165,55,.12), transparent 60%);
+    radial-gradient(ellipse 700px 400px at 15% 0%, rgba(200,168,88,.22), transparent 60%),
+    radial-gradient(ellipse 600px 400px at 90% 100%, rgba(200,168,88,.14), transparent 60%);
 }
 .cta-band__inner { position: relative; z-index: 1; }
 .cta-band h2 { color: #fff; }

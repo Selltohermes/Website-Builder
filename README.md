@@ -78,18 +78,20 @@ sh scripts/check-placeholders.sh
 
 It exits non-zero and lists every one. The list:
 
-- **`index.html`, homes bought stat.** Replace `[XXX]+` with your real number, or delete that tile.
-- **`index.html`, three testimonials.** These are marked `[REPLACE WITH A REAL REVIEW]`.
-  **Do not publish the samples.** Use real Google/Facebook reviews or written
-  testimonials you have permission to use. Fabricated reviews are an FTC problem.
-- **`index.html`, about photo.** Add `assets/img/hermes.jpg` and swap the placeholder block
-  (the comment above it shows the exact `<img>` to use).
+- **Reviews.** The site ships with none, deliberately. Where testimonials would sit,
+  there is an "Our Commitments" section plus an offer to connect callers with past
+  sellers as references, which is a stronger trust signal for a company founded in
+  2024 than thin praise. When real reviews come in, `index.html` has a commented
+  template in that section showing exactly where and how to paste them. Publish only
+  words a customer actually wrote, with their permission: the FTC rule on consumer
+  reviews and testimonials (16 CFR Part 465) carries civil penalties per violation
+  for fabricated ones.
 - **`index.html`, about paragraph.** Two or three sentences in your own voice: how long
   you've bought in Palm Beach County, why you started, what sellers should know.
 - **`index.html`, social links.** Point them at your real profiles or delete them.
 - **`index.html`, service-area list.** Trim to the cities you actually buy in.
-- **`privacy.html` and `terms.html`**: set the "Last updated" date, and disclose any
-  analytics/pixel you install. **Have an attorney review both before launch.**
+- **`privacy.html` and `terms.html`**: disclose any analytics or pixel you install, and
+  update the "Last updated" date when you do. **Have an attorney review both before launch.**
 
 ## 4. Add an OG image
 

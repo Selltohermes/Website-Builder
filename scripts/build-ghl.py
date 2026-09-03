@@ -45,7 +45,15 @@ js = (ROOT / "assets/js/main.js").read_text(encoding="utf-8")
 
 def data_uri(rel):
     raw = (ROOT / rel).read_bytes()
-    return "data:image/png;base64," + base64.b64encode(raw).decode()
+    mime = "image/jpeg" if rel.lower().endswith((".jpg", ".jpeg")) else "image/png"
+    return f"data:{mime};base64," + base64.b64encode(raw).decode()
+
+
+def inline_images(markup):
+    """Embed every local image. GHL has no assets/ directory to serve them."""
+    for rel in ("assets/img/logo-mark.png", "assets/img/logo.png", "assets/img/hermes.jpg"):
+        markup = markup.replace(f'src="{rel}"', f'src="{data_uri(rel)}"')
+    return markup
 
 
 # ---------------------------------------------------------------- head code --
@@ -82,9 +90,8 @@ links = {
 for old, new in links.items():
     body = body.replace(old, new)
 
-# Inline the logos so there is no media-library upload step.
-body = body.replace('src="assets/img/logo-mark.png"', f'src="{data_uri("assets/img/logo-mark.png")}"')
-body = body.replace('src="assets/img/logo.png"', f'src="{data_uri("assets/img/logo.png")}"')
+# Inline every image so there is no media-library upload step.
+body = inline_images(body)
 
 banner = """<!-- ============================================================
      Sell To Hermes: GoHighLevel PAGE BODY
@@ -153,8 +160,7 @@ for src, (out_name, path) in OTHER.items():
     b = re.sub(r'<script src="assets/js/main\.js" defer></script>\s*', "", b)
     for old, new in links.items():
         b = b.replace(old, new)
-    b = b.replace('src="assets/img/logo-mark.png"', f'src="{data_uri("assets/img/logo-mark.png")}"')
-    b = b.replace('src="assets/img/logo.png"', f'src="{data_uri("assets/img/logo.png")}"')
+    b = inline_images(b)
     note = f"""<!-- ============================================================
      Sell To Hermes: GoHighLevel PAGE BODY for the {path} step
      Paste into a full-width Custom Code / HTML element on that step.

@@ -50,8 +50,9 @@ set its section to full width with zero padding. Then paste:
 | `/privacy-policy` | `6-privacy-body.html` |
 | `/terms-and-conditions` | `7-terms-body.html` |
 
-The logos are embedded directly in the markup as data URIs, so there is nothing to
-upload to the media library first.
+Every image (both logos and the headshot) is embedded directly in the markup as a data
+URI, so there is nothing to upload to the media library first. That is why
+`2-page-body.html` is around 180KB. Paste the whole file; it is one element.
 
 ## 4. Paste the footer code
 
