@@ -42,26 +42,31 @@ var FORM_ENDPOINT = '';   // ← paste your endpoint here
 The JSON payload includes the property details, the contact details, and the
 UTM/gclid/fbclid parameters so you can tell which ads actually produce sellers.
 
-## 2. Swap in your real logo file
+## 2. Logo assets (already done)
 
-`assets/img/logo.svg` (full winged crest, used large in the footer) and
-`assets/img/logo-mark.svg` (simplified shield, used small in the header) are
-**hand-drawn stand-ins** built to match your STH Property Solutions crest. They are
-close, but they are not your actual artwork, and the "STH" letters render in whatever
-serif the visitor has installed. Replace them with your real file:
+The site uses your real STH Property Solutions artwork. The master file lives at
+`brand/sell-to-hermes-logo-original.png` and is not served to visitors. Three web
+files are derived from it:
+
+| File | Where it appears | Why it differs |
+|---|---|---|
+| `assets/img/logo.png` | Footer, standing alone at 128px | The full lockup, transparent padding trimmed |
+| `assets/img/logo-mark.png` | Header at 58px | Crest only. The "PROPERTY SOLUTIONS" wordmark would collide with the text beside it and is unreadable that small |
+| `assets/img/favicon.png` | Browser tab | Crest on a navy tile, because fine gold linework disappears against a light tab at 16px |
+
+The originals total 1.6MB, which is far too heavy for a page load, so each file is
+resized and palette-quantised down to roughly 16 to 25KB. The artwork is flat gold
+linework, so this is invisible to the eye.
+
+If you ever change the logo, drop the new file over the master and run:
 
 ```sh
-sh scripts/set-logo.sh path/to/your-logo.png
+pip install Pillow
+sh scripts/build-logo.sh
 ```
 
-Use a transparent PNG or an SVG. Two notes on sizing:
-
-- The full crest carries fine feather detail that turns to mush below about 70px, which
-  is why the header uses the simplified mark instead. If you have a cropped version of
-  the crest without the "PROPERTY SOLUTIONS" wordmark, pass it as a second argument and
-  the header will use it too.
-- Your source file is square with a lot of transparent padding. Trim that padding before
-  using it, or the logo will look small next to the wordmark.
+It re-trims, re-derives the header crest by detecting the blank band above the
+wordmark, and rebuilds the favicon.
 
 ## 3. Fill in the placeholders
 

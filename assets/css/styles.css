@@ -155,12 +155,12 @@ p:last-child { margin-bottom: 0; }
 .header__bar { display: flex; align-items: center; gap: 20px; height: 82px; }
 
 .logo { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; margin-right: auto; }
-.logo__mark { height: 48px; width: auto; flex: none; }
+.logo__mark { height: 58px; width: auto; flex: none; }
 
 /* The footer has room for the full winged crest at a size where the
    feather detail actually reads. */
 .logo--lg { align-items: center; gap: 14px; }
-.logo--lg .logo__mark { height: 76px; }
+.logo--lg .logo__mark { height: 128px; }
 .logo__text { display: flex; flex-direction: column; line-height: 1; }
 .logo__name {
   font-family: var(--font-head); font-weight: 800; font-size: 1.16rem;
