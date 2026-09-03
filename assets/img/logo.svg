@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="Sell To Hermes">
+  <rect width="64" height="64" rx="15" fill="#0A1A2F"/>
+  <path d="M32 15 L49 29.5 V47.5 a2.5 2.5 0 0 1-2.5 2.5 H37.5 V38.5 h-11 V50 H17.5 A2.5 2.5 0 0 1 15 47.5 V29.5 Z" fill="#D4A537"/>
+  <path d="M11.5 30.8 32 13.4 52.5 30.8" stroke="#F0BE4A" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M20 24.5h-9M17 20h-7" stroke="#F0BE4A" stroke-width="2.6" stroke-linecap="round" opacity=".85"/>
+</svg>
