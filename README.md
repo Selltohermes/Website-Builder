@@ -98,6 +98,11 @@ add one, shared links show no preview image.
 
 ## 5. Deploy
 
+If you are putting this into GoHighLevel, see `ghl/README.md`. Run
+`python3 scripts/build-ghl.py` to regenerate that bundle after any edit here.
+
+### Hosting it directly
+
 Any static host works. Drag the folder into **Netlify** (`netlify.toml` is already set up
 with security headers and asset caching), or use Vercel, Cloudflare Pages or GitHub Pages.
 

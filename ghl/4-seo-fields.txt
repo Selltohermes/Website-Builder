@@ -1,0 +1,22 @@
+Sell To Hermes: SEO fields
+Paste these into Funnel/Website > Settings > SEO Meta Data.
+Do not paste them as code; they are form fields in GHL.
+
+PAGE TITLE
+Sell To Hermes | We Buy Houses for Cash in Palm Beach, FL
+
+META DESCRIPTION
+Sell your Palm Beach house fast for cash. No agents, no fees, no repairs, no showings. Get a fair cash offer in 24 hours and close on the day you choose. Call (561) 336-5540.
+
+SOCIAL SHARE TITLE
+We Buy Houses for Cash in Palm Beach, FL | Sell To Hermes
+
+SOCIAL SHARE DESCRIPTION
+Get a fair, no-obligation cash offer on your Palm Beach home in 24 hours. Any condition, any situation. You pick the closing date.
+
+FAVICON
+Upload assets/img/favicon.png under Settings > Favicon.
+
+SOCIAL SHARE IMAGE
+You do not have one yet. Make a 1200x630 image and upload it in the same panel,
+or link previews will show no picture.
