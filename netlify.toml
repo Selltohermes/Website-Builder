@@ -1,4 +1,4 @@
-# Netlify deployment config — safe to delete if you host elsewhere.
+# Netlify deployment config. Safe to delete if you host elsewhere.
 [build]
   publish = "."
 

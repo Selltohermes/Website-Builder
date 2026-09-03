@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Sell To Hermes — site behaviour
+   Sell To Hermes: site behaviour
    Vanilla JS, no dependencies. Everything degrades gracefully without it.
    ========================================================================== */
 (function () {
@@ -237,7 +237,7 @@
       'Submitted:       ' + data.submittedAt
     ];
     window.location.href = 'mailto:' + FALLBACK_EMAIL +
-      '?subject=' + encodeURIComponent('Cash offer request — ' + (data.address || 'Palm Beach property')) +
+      '?subject=' + encodeURIComponent('Cash offer request: ' + (data.address || 'Palm Beach property')) +
       '&body=' + encodeURIComponent(lines.join('\n'));
   }
 

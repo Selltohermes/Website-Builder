@@ -12,5 +12,5 @@ if grep -rn --include='*.html' -E '\[[A-Za-z][^]]*\]|PLACEHOLDER' . ; then
   echo "^^ Fill these in before launch."
   exit 1
 else
-  echo "Clean — no placeholders left."
+  echo "Clean. No placeholders left."
 fi
